@@ -1,0 +1,99 @@
+﻿{
+  "TrainingTime": 10,
+  "Scenario": "Regression",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\Kullanıcı\\Desktop\\YapayZekaFinal-main\\YapayZekaFinal-main\\E2021new.csv",
+    "Delimiter": ";",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "HomeTeam",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "AwayTeam",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "FTHomeGol",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "FTAwayGol",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "HomeShot",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "AwayShot",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "HomeCorner",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      },
+      {
+        "ColumnName": "AwayCorner",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 1
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 0,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 0,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.2498932382910512,
+        "RuntimeInSeconds": 8.29800033569336
+      }
+    ],
+    "Pipeline": "{\"parameter\":{\r\n  \"0\": {\r\n    \"OutputColumnNames\": [\r\n      \"FTHomeGol\",\r\n      \"FTAwayGol\",\r\n      \"HomeShot\",\r\n      \"AwayShot\",\r\n      \"AwayCorner\"\r\n    ],\r\n    \"InputColumnNames\": [\r\n      \"FTHomeGol\",\r\n      \"FTAwayGol\",\r\n      \"HomeShot\",\r\n      \"AwayShot\",\r\n      \"AwayCorner\"\r\n    ]\r\n  },\r\n  \"1\": {\r\n    \"InputColumnName\": \"HomeTeam\",\r\n    \"OutputColumnName\": \"HomeTeam\"\r\n  },\r\n  \"2\": {\r\n    \"InputColumnName\": \"AwayTeam\",\r\n    \"OutputColumnName\": \"AwayTeam\"\r\n  },\r\n  \"3\": {\r\n    \"InputColumnNames\": [\r\n      \"FTHomeGol\",\r\n      \"FTAwayGol\",\r\n      \"HomeShot\",\r\n      \"AwayShot\",\r\n      \"AwayCorner\",\r\n      \"HomeTeam\",\r\n      \"AwayTeam\"\r\n    ],\r\n    \"OutputColumnName\": \"Features\"\r\n  },\r\n  \"4\": {\r\n    \"NumberOfTrees\": 4,\r\n    \"NumberOfLeaves\": 4,\r\n    \"FeatureFraction\": 1.0,\r\n    \"LabelColumnName\": \"HomeCorner\",\r\n    \"FeatureColumnName\": \"Features\"\r\n  }\r\n},\"estimators\":[\"ReplaceMissingValues\",\"FeaturizeText\",\"FeaturizeText\",\"Concatenate\",\"FastForestRegression\"]}",
+    "MetricName": "RSquared"
+  },
+  "Type": "TrainingConfig",
+  "Version": 1
+}
